@@ -35,7 +35,6 @@ function createAudioBuffer(src: string, size: number) {
     for (let i = 0; i < pool.length; i++) {
       const audio = pool[i];
       if (audio.ended || audio.currentTime === 0) {
-        console.log(i);
         audio.play();
         break;
       }
@@ -74,11 +73,7 @@ const updateCircleSpawning = createTimer(1000, (_dt: number) => {
 });
 
 const updateCircleGrowth = createTimer(5000 / 60, (_dt: number) => {
-  circles.forEach((circle) => {
-    if (!circle) console.log(circles);
-    if (circle.length < 3) console.log(circle);
-    circle[2]++;
-  });
+  circles.forEach((circle) => circle[2]++);
 });
 // </editor-fold>
 
